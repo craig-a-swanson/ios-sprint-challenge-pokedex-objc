@@ -59,30 +59,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ots-M1-eTs">
-                                <rect key="frame" x="20" y="484.5" width="294" height="277.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1oz-En-cBy">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1oz-En-cBy">
                                 <rect key="frame" x="20" y="113" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="A2s-M0-ENm"/>
                                     <constraint firstAttribute="height" constant="250" id="G7e-1k-9O0"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abilities:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYe-e5-OZ5">
+                                <rect key="frame" x="20" y="484.5" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ots-M1-eTs">
+                                <rect key="frame" x="35" y="515.5" width="279" height="246.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="CYe-e5-OZ5" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="20" id="0xo-SN-Zoc"/>
                             <constraint firstItem="Ch8-dk-u9T" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="20" id="4O8-hH-ArW"/>
-                            <constraint firstItem="Ots-M1-eTs" firstAttribute="top" secondItem="TkV-aT-ziX" secondAttribute="bottom" constant="20" id="5Gm-hd-5j1"/>
                             <constraint firstItem="TkV-aT-ziX" firstAttribute="top" secondItem="Ch8-dk-u9T" secondAttribute="bottom" constant="20" id="5Kb-5y-lAl"/>
+                            <constraint firstItem="Ots-M1-eTs" firstAttribute="top" secondItem="CYe-e5-OZ5" secondAttribute="bottom" constant="10" id="Al3-QN-61d"/>
                             <constraint firstItem="KWJ-su-M58" firstAttribute="trailing" secondItem="Ch8-dk-u9T" secondAttribute="trailing" constant="50" id="D6l-xr-hEH"/>
                             <constraint firstItem="KWJ-su-M58" firstAttribute="trailing" secondItem="TkV-aT-ziX" secondAttribute="trailing" constant="75" id="JYH-Rm-ggk"/>
+                            <constraint firstItem="CYe-e5-OZ5" firstAttribute="top" secondItem="TkV-aT-ziX" secondAttribute="bottom" constant="20" id="Waw-MF-yFm"/>
                             <constraint firstItem="KWJ-su-M58" firstAttribute="bottom" secondItem="Ots-M1-eTs" secondAttribute="bottom" constant="100" id="YCp-yh-lf1"/>
-                            <constraint firstItem="Ots-M1-eTs" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="20" id="YDg-eA-2bC"/>
+                            <constraint firstItem="Ots-M1-eTs" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="35" id="YDg-eA-2bC"/>
                             <constraint firstItem="1oz-En-cBy" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="20" id="geM-In-Z6V"/>
                             <constraint firstItem="Ch8-dk-u9T" firstAttribute="top" secondItem="1oz-En-cBy" secondAttribute="bottom" constant="40" id="mVq-SB-a0s"/>
                             <constraint firstItem="1oz-En-cBy" firstAttribute="top" secondItem="KWJ-su-M58" secondAttribute="top" constant="25" id="nOt-WP-2OE"/>

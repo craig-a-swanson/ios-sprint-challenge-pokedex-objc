@@ -58,10 +58,12 @@ void *PokemonDetailControllerContext = &PokemonDetailControllerContext;
 - (void)updateViews {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSNumber *idNumber = [NSNumber numberWithInteger:self.sharedPokemonController.selectedPokemon.identifier];
-        self.nameLabel.text = self.sharedPokemonController.selectedPokemon.name;
+        NSString *labelName = self.sharedPokemonController.selectedPokemon.name;
+        
+        self.abilitiesTextView.text = [self.sharedPokemonController.selectedPokemon.abilities componentsJoinedByString:@"\n"];
+        self.nameLabel.text = [NSString stringWithFormat:@"Name: %@",labelName];
         self.spriteImageView.image = self.sharedPokemonController.selectedPokemon.spriteImage;
-        self.identifierLabel.text = [NSString stringWithFormat:@"%@", idNumber];
-        self.abilitiesTextView.text = self.sharedPokemonController.selectedPokemon.abilities.description;
+        self.identifierLabel.text = [NSString stringWithFormat:@"ID: %@", idNumber];
     });
 
 }
