@@ -16,6 +16,7 @@
 		4470D5A2245FB02E006292F0 /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470D5A1245FB02E006292F0 /* Pokemon.m */; };
 		4470D5A5245FB2D7006292F0 /* PokemonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470D5A4245FB2D7006292F0 /* PokemonAPI.swift */; };
 		4470D5AE245FC126006292F0 /* PokemonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470D5AD245FC126006292F0 /* PokemonTableViewController.m */; };
+		4470D5B1245FE5BC006292F0 /* PokemonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470D5B0245FE5BC006292F0 /* PokemonDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		4470D5A4245FB2D7006292F0 /* PokemonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPI.swift; sourceTree = "<group>"; };
 		4470D5AC245FC126006292F0 /* PokemonTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PokemonTableViewController.h; sourceTree = "<group>"; };
 		4470D5AD245FC126006292F0 /* PokemonTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PokemonTableViewController.m; sourceTree = "<group>"; };
+		4470D5AF245FE5BC006292F0 /* PokemonDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PokemonDetailViewController.h; sourceTree = "<group>"; };
+		4470D5B0245FE5BC006292F0 /* PokemonDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PokemonDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +76,8 @@
 				4470D58B245FAFE5006292F0 /* SceneDelegate.m */,
 				4470D5A0245FB02E006292F0 /* Pokemon.h */,
 				4470D5A1245FB02E006292F0 /* Pokemon.m */,
-				4470D5A4245FB2D7006292F0 /* PokemonAPI.swift */,
-				4470D5AC245FC126006292F0 /* PokemonTableViewController.h */,
-				4470D5AD245FC126006292F0 /* PokemonTableViewController.m */,
+				4470D5B4245FE5F1006292F0 /* Model Controller */,
+				4470D5B2245FE5C9006292F0 /* View Controllers */,
 				4470D590245FAFE5006292F0 /* Main.storyboard */,
 				4470D593245FAFE6006292F0 /* Assets.xcassets */,
 				4470D595245FAFE6006292F0 /* LaunchScreen.storyboard */,
@@ -84,6 +86,25 @@
 				4470D5A3245FB2D6006292F0 /* PokeDexObjC-Bridging-Header.h */,
 			);
 			path = PokeDexObjC;
+			sourceTree = "<group>";
+		};
+		4470D5B2245FE5C9006292F0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4470D5AC245FC126006292F0 /* PokemonTableViewController.h */,
+				4470D5AD245FC126006292F0 /* PokemonTableViewController.m */,
+				4470D5AF245FE5BC006292F0 /* PokemonDetailViewController.h */,
+				4470D5B0245FE5BC006292F0 /* PokemonDetailViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4470D5B4245FE5F1006292F0 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4470D5A4245FB2D7006292F0 /* PokemonAPI.swift */,
+			);
+			name = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +182,7 @@
 				4470D5A5245FB2D7006292F0 /* PokemonAPI.swift in Sources */,
 				4470D59A245FAFE6006292F0 /* main.m in Sources */,
 				4470D5A2245FB02E006292F0 /* Pokemon.m in Sources */,
+				4470D5B1245FE5BC006292F0 /* PokemonDetailViewController.m in Sources */,
 				4470D58C245FAFE5006292F0 /* SceneDelegate.m in Sources */,
 				4470D5AE245FC126006292F0 /* PokemonTableViewController.m in Sources */,
 			);

@@ -11,6 +11,7 @@ import Foundation
 @objc class PokemonAPI: NSObject {
     
     @objc var pokemons: [Pokemon] = []
+    @objc var selectedPokemon: Pokemon?
     private let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     private let pokemonInDatabase: String = "964"
     

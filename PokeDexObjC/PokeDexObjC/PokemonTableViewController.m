@@ -9,6 +9,7 @@
 #import "PokemonTableViewController.h"
 #import "PokeDexObjC-Swift.h"
 #import "Pokemon.h"
+#import "PokemonDetailViewController.h"
 
 @interface PokemonTableViewController ()
 
@@ -89,14 +90,20 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ShowDetailSegue"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        PokemonDetailViewController *detailVC = segue.destinationViewController;
+        
+        Pokemon *currentPokemon = [self.internalPokemon objectAtIndex:indexPath.row];
+        [PokemonAPI.sharedController fillInDetailsFor:currentPokemon];
+        detailVC.pokemon = currentPokemon;
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end
