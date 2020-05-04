@@ -16,6 +16,9 @@ void *PokemonDetailControllerContext = &PokemonDetailControllerContext;
 
 @property PokemonAPI *sharedPokemonController;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *spriteImageView;
+@property (strong, nonatomic) IBOutlet UILabel *identifierLabel;
+@property (strong, nonatomic) IBOutlet UITextView *abilitiesTextView;
 
 @end
 
@@ -53,7 +56,14 @@ void *PokemonDetailControllerContext = &PokemonDetailControllerContext;
 }
 
 - (void)updateViews {
-    self.nameLabel.text = self.sharedPokemonController.selectedPokemon.name;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSNumber *idNumber = [NSNumber numberWithInteger:self.sharedPokemonController.selectedPokemon.identifier];
+        self.nameLabel.text = self.sharedPokemonController.selectedPokemon.name;
+        self.spriteImageView.image = self.sharedPokemonController.selectedPokemon.spriteImage;
+        self.identifierLabel.text = [NSString stringWithFormat:@"%@", idNumber];
+        self.abilitiesTextView.text = self.sharedPokemonController.selectedPokemon.abilities.description;
+    });
+
 }
 
 - (void)dealloc {

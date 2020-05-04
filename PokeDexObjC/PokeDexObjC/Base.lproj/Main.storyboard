@@ -47,25 +47,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch8-dk-u9T">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch8-dk-u9T">
+                                <rect key="frame" x="20" y="403" width="344" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkV-aT-ziX">
+                                <rect key="frame" x="20" y="443.5" width="319" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ots-M1-eTs">
+                                <rect key="frame" x="20" y="484.5" width="294" height="277.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1oz-En-cBy">
+                                <rect key="frame" x="20" y="113" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="A2s-M0-ENm"/>
+                                    <constraint firstAttribute="height" constant="250" id="G7e-1k-9O0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ch8-dk-u9T" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="20" id="4O8-hH-ArW"/>
+                            <constraint firstItem="Ots-M1-eTs" firstAttribute="top" secondItem="TkV-aT-ziX" secondAttribute="bottom" constant="20" id="5Gm-hd-5j1"/>
+                            <constraint firstItem="TkV-aT-ziX" firstAttribute="top" secondItem="Ch8-dk-u9T" secondAttribute="bottom" constant="20" id="5Kb-5y-lAl"/>
+                            <constraint firstItem="KWJ-su-M58" firstAttribute="trailing" secondItem="Ch8-dk-u9T" secondAttribute="trailing" constant="50" id="D6l-xr-hEH"/>
+                            <constraint firstItem="KWJ-su-M58" firstAttribute="trailing" secondItem="TkV-aT-ziX" secondAttribute="trailing" constant="75" id="JYH-Rm-ggk"/>
+                            <constraint firstItem="KWJ-su-M58" firstAttribute="bottom" secondItem="Ots-M1-eTs" secondAttribute="bottom" constant="100" id="YCp-yh-lf1"/>
+                            <constraint firstItem="Ots-M1-eTs" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="20" id="YDg-eA-2bC"/>
+                            <constraint firstItem="1oz-En-cBy" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="20" id="geM-In-Z6V"/>
+                            <constraint firstItem="Ch8-dk-u9T" firstAttribute="top" secondItem="1oz-En-cBy" secondAttribute="bottom" constant="40" id="mVq-SB-a0s"/>
+                            <constraint firstItem="1oz-En-cBy" firstAttribute="top" secondItem="KWJ-su-M58" secondAttribute="top" constant="25" id="nOt-WP-2OE"/>
+                            <constraint firstItem="KWJ-su-M58" firstAttribute="trailing" secondItem="Ots-M1-eTs" secondAttribute="trailing" constant="100" id="sDR-bx-qc6"/>
+                            <constraint firstItem="TkV-aT-ziX" firstAttribute="leading" secondItem="KWJ-su-M58" secondAttribute="leading" constant="20" id="uhr-iQ-eqJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KWJ-su-M58"/>
                     </view>
                     <navigationItem key="navigationItem" id="kL2-m8-70f"/>
                     <connections>
+                        <outlet property="abilitiesTextView" destination="Ots-M1-eTs" id="J9z-F6-P7q"/>
+                        <outlet property="identifierLabel" destination="TkV-aT-ziX" id="HSR-l3-doW"/>
                         <outlet property="nameLabel" destination="Ch8-dk-u9T" id="LT4-qS-RpP"/>
+                        <outlet property="spriteImageView" destination="1oz-En-cBy" id="ifH-nt-B12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brI-M4-M5k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1903" y="89"/>
+            <point key="canvasLocation" x="1902.8985507246377" y="88.392857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k45-na-Sdv">

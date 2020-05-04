@@ -11,19 +11,20 @@
 @implementation Pokemon
 
 - (instancetype)initWithName:(NSString *)name
-                  identifier:(NSString *)identifier
-                      sprite:(NSURL *)sprite
+                  identifier:(NSInteger)identifier
+                      sprite:(NSString *)sprite
                    abilities:(NSArray *)abilities {
     if (self = [super init]) {
         _name = [name copy];
-        _identifier = [identifier copy];
+        _identifier = identifier;
         _sprite = sprite;
         _abilities = [abilities copy];
     }
     return self;
 }
 
-- (instancetype)initTableViewWithName:(NSString *)name detailURL:(NSURL *)detailURL {
+- (instancetype)initTableViewWithName:(NSString *)name
+                            detailURL:(NSString *)detailURL {
     if (self = [super init]) {
         _name = [name copy];
         _detailURL = detailURL;
@@ -51,12 +52,13 @@
         [abilitiesArray addObject:name];
     }
     
-    NSString *identifier = [dictionary objectForKey:@"id"];
+    NSNumber *identifierNumber = [dictionary objectForKey:@"id"];
+    NSInteger identifier = identifierNumber.integerValue;
     
     NSString *characterName = [dictionary objectForKey:@"name"];
     
     NSDictionary *spriteDictionary = [dictionary objectForKey:@"sprites"];
-    NSURL *spriteURL = [spriteDictionary objectForKey:@"front_default"];
+    NSString *spriteURL = [spriteDictionary objectForKey:@"front_default"];
     
     self = [self initWithName:characterName identifier:identifier sprite:spriteURL abilities:abilitiesArray];
     
@@ -72,7 +74,7 @@
         NSString *name = [dictionary objectForKey:@"name"];
         if (![name isKindOfClass:[NSString class]]) return nil;
         
-        NSURL *detailURL = [dictionary objectForKey:@"url"];
+        NSString *detailURL = [dictionary objectForKey:@"url"];
         if (![detailURL isKindOfClass:[NSString class]]) return nil;
         
         Pokemon *newPokemon = [[Pokemon alloc] initTableViewWithName:name detailURL:detailURL];

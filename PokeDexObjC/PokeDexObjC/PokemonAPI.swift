@@ -54,7 +54,39 @@ import UIKit
     }
     
     // fetch individual pokemon data
-    
+    func fetchPokemon(for pokemonURL: URL, completion: @escaping (Pokemon?, Error?) -> Void) {
+        let requestURL = URLRequest(url: pokemonURL)
+        
+        URLSession.shared.dataTask(with: requestURL) { (possibleData, _, possibleError) in
+            if let error = possibleError {
+                print("Error fetching pokemon with data task \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = possibleData else {
+                NSLog("Returned data pokemon data with data task")
+                return
+            }
+            
+            do {
+                let jsonPokemonDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                let currentPokemon = Pokemon(dictionary: jsonPokemonDictionary!)
+//                self.fetchSprite(at: URL(string: currentPokemon.sprite)!) { (possibleImage, possibleError) in
+//                    guard let spriteImage = possibleImage else { return }
+//                    DispatchQueue.main.async {
+//                        currentPokemon.spriteImage = spriteImage
+//                    }
+//                }
+                completion(currentPokemon, nil)
+                
+            } catch {
+                print("Error decoding Pokemon: \(error)")
+                completion(nil, error)
+                return
+            }
+        }.resume()
+    }
     
     // fetch sprite image
     func fetchSprite(at spriteURL: URL, completion: @escaping (UIImage?, Error?) -> Void) {
@@ -78,6 +110,18 @@ import UIKit
     }
     
     @objc func fillInDetails(for pokemon: Pokemon) {
-        self.selectedPokemon = pokemon
+        fetchPokemon(for: URL(string: pokemon.detailURL)!) { (possiblePokemon, possibleError) in
+            if possibleError != nil { return }
+//            DispatchQueue.main.async {
+                self.selectedPokemon = possiblePokemon
+//            }
+        }
+//        fetchSprite(at: URL(string: pokemon.sprite)!) { (possibleImage, possibleError) in
+//            guard let spriteImage = possibleImage else { return }
+//            DispatchQueue.main.async {
+//                self.selectedPokemon?.spriteImage = spriteImage
+//            }
+//        }
+//        self.selectedPokemon = pokemon
     }
 }

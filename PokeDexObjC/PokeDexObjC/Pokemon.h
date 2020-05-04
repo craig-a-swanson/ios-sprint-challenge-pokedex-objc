@@ -7,25 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Pokemon : NSObject
 
 @property (nonatomic, readonly, copy) NSString *name;
-@property (nonatomic, readonly) NSURL *detailURL;
-@property (nonatomic, readonly, copy) NSString *identifier;
-@property (nonatomic, readonly) NSURL *sprite;
+@property (nonatomic, readonly) NSString *detailURL;
+@property (nonatomic, readonly) NSInteger identifier;
+@property (nonatomic, readonly) NSString *sprite;
+@property (nonatomic) UIImage *spriteImage;
 @property (nonatomic, readonly, copy) NSArray *abilities;
 @property (nonatomic, readonly) NSArray<Pokemon *> *allPokemon;
 
 - (instancetype)initWithName:(NSString *)name
-                  identifier:(NSString *) identifier
-                      sprite:(NSURL *)sprite
+                  identifier:(NSInteger)identifier
+                      sprite:(NSString *)sprite
                    abilities:(NSArray *)abilities;
 
 - (instancetype)initTableViewWithName:(NSString *)name
-                            detailURL:(NSURL *)detailURL;
+                            detailURL:(NSString *)detailURL;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (instancetype)initWithAllPokemon:(NSArray<Pokemon *> *)allPokemon;
