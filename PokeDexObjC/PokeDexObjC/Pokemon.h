@@ -26,10 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
                       sprite:(NSString *)sprite
                    abilities:(NSArray *)abilities;
 
+// Initializer used in populating the table view
 - (instancetype)initTableViewWithName:(NSString *)name
                             detailURL:(NSString *)detailURL;
 
+// initWithDictionary is used to decode JSON for the detail view controller
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+// initWithAllPokemon and initTableViewWithDictionary are used to decode JSON for the table view controller
 - (instancetype)initWithAllPokemon:(NSArray<Pokemon *> *)allPokemon;
 - (instancetype)initTableViewWithDictionary:(NSDictionary *)dictionary;
 

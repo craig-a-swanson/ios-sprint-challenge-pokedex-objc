@@ -11,11 +11,12 @@ import UIKit
 
 @objc class PokemonAPI: NSObject {
     
+    // The pokemons array is used for the table view and the selectedPokemon is used for the detail view.
     @objc var pokemons: [Pokemon] = []
     @objc dynamic var selectedPokemon: Pokemon?
     
     private let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
-    private let pokemonInDatabase: String = "964"
+    private let pokemonInDatabase: String = "964"  // hard coded number of pokemon currently in the pokeAPI database
     
     @objc(sharedController) static let shared: PokemonAPI = PokemonAPI()
     
@@ -72,12 +73,12 @@ import UIKit
             do {
                 let jsonPokemonDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 let currentPokemon = Pokemon(dictionary: jsonPokemonDictionary!)
+                
+                // Call the fetchSprite method and, when it completes, set the selectedPokemon equal to the currentPokemon in order to notify the observer in the detail view controller
                 self.fetchSprite(at: URL(string: currentPokemon.sprite)!) { (possibleImage, possibleError) in
                     guard let spriteImage = possibleImage else { return }
-//                    DispatchQueue.main.async {
-                        currentPokemon.spriteImage = spriteImage
+                    currentPokemon.spriteImage = spriteImage
                     self.selectedPokemon = currentPokemon
-//                    }
                 }
                 completion(currentPokemon, nil)
                 
@@ -115,12 +116,5 @@ import UIKit
             if possibleError != nil { return }
                 self.selectedPokemon = possiblePokemon
         }
-//        fetchSprite(at: URL(string: pokemon.sprite)!) { (possibleImage, possibleError) in
-//            guard let spriteImage = possibleImage else { return }
-//            DispatchQueue.main.async {
-//                self.selectedPokemon?.spriteImage = spriteImage
-//            }
-//        }
-//        self.selectedPokemon = pokemon
     }
 }
