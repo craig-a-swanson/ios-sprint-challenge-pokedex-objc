@@ -99,7 +99,7 @@
         PokemonDetailViewController *detailVC = segue.destinationViewController;
         
         Pokemon *currentPokemon = [self.internalPokemon objectAtIndex:indexPath.row];
-        [PokemonAPI.sharedController fillInDetailsFor:currentPokemon];
+//        [PokemonAPI.sharedController fillInDetailsFor:currentPokemon];
         detailVC.pokemon = currentPokemon;
     }
     // Get the new view controller using [segue destinationViewController].

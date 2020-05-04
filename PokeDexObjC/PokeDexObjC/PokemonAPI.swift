@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 @objc class PokemonAPI: NSObject {
     
     @objc var pokemons: [Pokemon] = []
-    @objc var selectedPokemon: Pokemon?
+    @objc dynamic var selectedPokemon: Pokemon?
+    
     private let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     private let pokemonInDatabase: String = "964"
     
@@ -51,7 +53,30 @@ import Foundation
         }.resume()
     }
     
-    @objc func fillInDetails(for pokemon: Pokemon) {
+    // fetch individual pokemon data
+    
+    // fetch sprite image
+    func fetchSprite(at spriteURL: URL, completion: @escaping (UIImage?, Error?) -> Void) {
+        let request = URLRequest(url: spriteURL)
         
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                print("Error getting sprite image: \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil, error)
+                return
+            }
+            
+            let image = UIImage(data: data)
+            completion(image, nil)
+        }.resume()
+    }
+    
+    @objc func fillInDetails(for pokemon: Pokemon) {
+        self.selectedPokemon = pokemon
     }
 }

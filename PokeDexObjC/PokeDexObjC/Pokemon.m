@@ -43,7 +43,6 @@
 - (instancetype)initTableViewWithDictionary:(NSDictionary *)dictionary {
     NSArray *array = [dictionary objectForKey:@"results"];
     NSMutableArray *pokemonArray = [[NSMutableArray alloc] init];
-//    NSDictionary *pokemonDictionary = [array objectAtIndex:0];
     
     for (NSDictionary *dictionary in array) {
         

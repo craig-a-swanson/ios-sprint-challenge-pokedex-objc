@@ -15,6 +15,7 @@ void *PokemonDetailControllerContext = &PokemonDetailControllerContext;
 @interface PokemonDetailViewController ()
 
 @property PokemonAPI *sharedPokemonController;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -25,6 +26,7 @@ void *PokemonDetailControllerContext = &PokemonDetailControllerContext;
     
     self.sharedPokemonController = PokemonAPI.sharedController;
     [self registerAsObserverForPokemonController:self.sharedPokemonController];
+    [self.sharedPokemonController fillInDetailsFor:self.pokemon];
 }
 
 - (void)registerAsObserverForPokemonController:(PokemonAPI *)pokemonController {
@@ -51,7 +53,7 @@ void *PokemonDetailControllerContext = &PokemonDetailControllerContext;
 }
 
 - (void)updateViews {
-    
+    self.nameLabel.text = self.sharedPokemonController.selectedPokemon.name;
 }
 
 - (void)dealloc {
