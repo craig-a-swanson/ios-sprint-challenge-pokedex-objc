@@ -14,22 +14,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, copy) NSString *name;
 @property (nonatomic, readonly) NSURL *detailURL;
-@property (nonatomic, readonly) NSUInteger identifier;
+@property (nonatomic, readonly, copy) NSString *identifier;
 @property (nonatomic, readonly) NSURL *sprite;
 @property (nonatomic, readonly, copy) NSArray *abilities;
 @property (nonatomic, readonly) NSArray<Pokemon *> *allPokemon;
 
 - (instancetype)initWithName:(NSString *)name
-                   detailURL:(NSURL *)detailURL
-                  identifier:(NSUInteger) identifier
+                  identifier:(NSString *) identifier
                       sprite:(NSURL *)sprite
                    abilities:(NSArray *)abilities;
 
 - (instancetype)initTableViewWithName:(NSString *)name
                             detailURL:(NSURL *)detailURL;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (instancetype)initWithAllPokemon:(NSArray<Pokemon *> *)allPokemon;
 - (instancetype)initTableViewWithDictionary:(NSDictionary *)dictionary;
+
 
 @end
 

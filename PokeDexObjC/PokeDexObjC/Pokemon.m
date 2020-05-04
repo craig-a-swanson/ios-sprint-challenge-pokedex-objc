@@ -11,14 +11,12 @@
 @implementation Pokemon
 
 - (instancetype)initWithName:(NSString *)name
-                   detailURL:(NSURL *)detailURL
-                  identifier:(NSUInteger)identifier
+                  identifier:(NSString *)identifier
                       sprite:(NSURL *)sprite
                    abilities:(NSArray *)abilities {
     if (self = [super init]) {
         _name = [name copy];
-        _detailURL = detailURL;
-        _identifier = identifier;
+        _identifier = [identifier copy];
         _sprite = sprite;
         _abilities = [abilities copy];
     }
@@ -37,6 +35,31 @@
     if (self = [super init]) {
         _allPokemon = allPokemon;
     }
+    return self;
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    NSArray *abilities = [dictionary objectForKey:@"abilities"];
+    
+    NSMutableArray *abilitiesArray = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *dictionary in abilities) {
+        NSDictionary *abilityDictionary = [dictionary objectForKey:@"ability"];
+        NSString *name = [abilityDictionary objectForKey:@"name"];
+        if (![name isKindOfClass:[NSString class]]) return nil;
+        
+        [abilitiesArray addObject:name];
+    }
+    
+    NSString *identifier = [dictionary objectForKey:@"id"];
+    
+    NSString *characterName = [dictionary objectForKey:@"name"];
+    
+    NSDictionary *spriteDictionary = [dictionary objectForKey:@"sprites"];
+    NSURL *spriteURL = [spriteDictionary objectForKey:@"front_default"];
+    
+    self = [self initWithName:characterName identifier:identifier sprite:spriteURL abilities:abilitiesArray];
+    
     return self;
 }
 

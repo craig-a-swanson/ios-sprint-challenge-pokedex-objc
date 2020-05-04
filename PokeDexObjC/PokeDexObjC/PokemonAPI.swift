@@ -55,6 +55,7 @@ import UIKit
     
     // fetch individual pokemon data
     
+    
     // fetch sprite image
     func fetchSprite(at spriteURL: URL, completion: @escaping (UIImage?, Error?) -> Void) {
         let request = URLRequest(url: spriteURL)
