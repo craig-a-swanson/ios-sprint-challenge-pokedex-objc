@@ -16,6 +16,7 @@
 		4470D59A245FAFE6006292F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470D599245FAFE6006292F0 /* main.m */; };
 		4470D5A2245FB02E006292F0 /* Pokemon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470D5A1245FB02E006292F0 /* Pokemon.m */; };
 		4470D5A5245FB2D7006292F0 /* PokemonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4470D5A4245FB2D7006292F0 /* PokemonAPI.swift */; };
+		4470D5AB245FBB73006292F0 /* Pokemon+NSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4470D5AA245FBB73006292F0 /* Pokemon+NSJSONSerialization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		4470D5A1245FB02E006292F0 /* Pokemon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pokemon.m; sourceTree = "<group>"; };
 		4470D5A3245FB2D6006292F0 /* PokeDexObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokeDexObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		4470D5A4245FB2D7006292F0 /* PokemonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPI.swift; sourceTree = "<group>"; };
+		4470D5A9245FBB73006292F0 /* Pokemon+NSJSONSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pokemon+NSJSONSerialization.h"; sourceTree = "<group>"; };
+		4470D5AA245FBB73006292F0 /* Pokemon+NSJSONSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pokemon+NSJSONSerialization.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				4470D58B245FAFE5006292F0 /* SceneDelegate.m */,
 				4470D5A0245FB02E006292F0 /* Pokemon.h */,
 				4470D5A1245FB02E006292F0 /* Pokemon.m */,
+				4470D5A9245FBB73006292F0 /* Pokemon+NSJSONSerialization.h */,
+				4470D5AA245FBB73006292F0 /* Pokemon+NSJSONSerialization.m */,
 				4470D5A4245FB2D7006292F0 /* PokemonAPI.swift */,
 				4470D58D245FAFE5006292F0 /* ViewController.h */,
 				4470D58E245FAFE5006292F0 /* ViewController.m */,
@@ -161,6 +166,7 @@
 				4470D589245FAFE5006292F0 /* AppDelegate.m in Sources */,
 				4470D5A5245FB2D7006292F0 /* PokemonAPI.swift in Sources */,
 				4470D59A245FAFE6006292F0 /* main.m in Sources */,
+				4470D5AB245FBB73006292F0 /* Pokemon+NSJSONSerialization.m in Sources */,
 				4470D5A2245FB02E006292F0 /* Pokemon.m in Sources */,
 				4470D58C245FAFE5006292F0 /* SceneDelegate.m in Sources */,
 			);
