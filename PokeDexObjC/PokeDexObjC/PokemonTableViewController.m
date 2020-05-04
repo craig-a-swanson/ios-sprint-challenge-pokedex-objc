@@ -8,9 +8,11 @@
 
 #import "PokemonTableViewController.h"
 #import "PokeDexObjC-Swift.h"
+#import "Pokemon.h"
 
 @interface PokemonTableViewController ()
 
+@property (nonatomic) NSArray<Pokemon *> *internalPokemon;
 
 @end
 
@@ -20,12 +22,16 @@
     [super viewDidLoad];
 
     PokemonAPI *sharedPokemonController = PokemonAPI.sharedController;
-    [sharedPokemonController fetchAllPokemonWithCompletion:^(NSArray<Pokemon *> * _Nullable possiblePokemon, NSError * _Nullable possibleError) {
+
+    [sharedPokemonController fetchAllPokemonWithCompletion:^(Pokemon * _Nullable possiblePokemon, NSError * _Nullable possibleError) {
         if (possibleError) {
             NSLog(@"Error retrieving all Pokemon for Table View: %@", possibleError);
             return;
         }
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.internalPokemon = sharedPokemonController.pokemons;
+            [self.tableView reloadData];
+        });
     }];
     
 }
@@ -33,24 +39,21 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.internalPokemon.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PokemonCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    Pokemon *currentPokemon = self.internalPokemon[indexPath.row];
+    cell.textLabel.text = currentPokemon.name;
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

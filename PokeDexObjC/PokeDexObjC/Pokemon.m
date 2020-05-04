@@ -40,4 +40,24 @@
     return self;
 }
 
+- (instancetype)initTableViewWithDictionary:(NSDictionary *)dictionary {
+    NSArray *array = [dictionary objectForKey:@"results"];
+    NSMutableArray *pokemonArray = [[NSMutableArray alloc] init];
+//    NSDictionary *pokemonDictionary = [array objectAtIndex:0];
+    
+    for (NSDictionary *dictionary in array) {
+        
+        NSString *name = [dictionary objectForKey:@"name"];
+        if (![name isKindOfClass:[NSString class]]) return nil;
+        
+        NSURL *detailURL = [dictionary objectForKey:@"url"];
+        if (![detailURL isKindOfClass:[NSString class]]) return nil;
+        
+        Pokemon *newPokemon = [[Pokemon alloc] initTableViewWithName:name detailURL:detailURL];
+        [pokemonArray addObject:newPokemon];
+    }
+    self = [self initWithAllPokemon:pokemonArray];
+    return self;
+}
+
 @end

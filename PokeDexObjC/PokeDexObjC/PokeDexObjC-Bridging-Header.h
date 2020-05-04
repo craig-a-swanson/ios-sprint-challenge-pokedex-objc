@@ -3,4 +3,3 @@
 //
 
 #import "Pokemon.h"
-#import "Pokemon+NSJSONSerialization.h"

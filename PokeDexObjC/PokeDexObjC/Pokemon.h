@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
                             detailURL:(NSURL *)detailURL;
 
 - (instancetype)initWithAllPokemon:(NSArray<Pokemon *> *)allPokemon;
+- (instancetype)initTableViewWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

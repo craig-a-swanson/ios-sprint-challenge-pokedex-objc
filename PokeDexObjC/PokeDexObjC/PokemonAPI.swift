@@ -15,7 +15,7 @@ import Foundation
     
     @objc(sharedController) static let shared: PokemonAPI = PokemonAPI()
     
-    @objc func fetchAllPokemon(completion: @escaping ([Pokemon]?, Error?) -> Void) {
+    @objc func fetchAllPokemon(completion: @escaping (Pokemon?, Error?) -> Void) {
         var requestURL = URLRequest(url: baseURL)
         requestURL.httpMethod = "GET"
         
@@ -32,9 +32,10 @@ import Foundation
             }
             
             do {
-                let jsonPokemonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [Pokemon]
-                self.pokemons = Pokemon.init(tableViewWith: jsonPokemonArray!) as [Pokemon]
-                completion(jsonPokemonArray, nil)
+                let jsonPokemonDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                let allPokes = Pokemon.init(tableViewWith: jsonPokemonDictionary!)
+                self.pokemons = allPokes.allPokemon
+                completion(allPokes, nil)
                 
             } catch {
                 print("Error decoding results of fetching all Pokemon: \(error)")
