@@ -12,11 +12,16 @@ import Foundation
     
     @objc var pokemons: [Pokemon] = []
     private let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
+    private let pokemonInDatabase: String = "964"
     
     @objc(sharedController) static let shared: PokemonAPI = PokemonAPI()
     
     @objc func fetchAllPokemon(completion: @escaping (Pokemon?, Error?) -> Void) {
-        var requestURL = URLRequest(url: baseURL)
+        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        let queryItem = URLQueryItem(name: "limit", value: pokemonInDatabase)
+        urlComponents?.queryItems = [queryItem]
+        guard let request = urlComponents?.url else { return }
+        var requestURL = URLRequest(url: request)
         requestURL.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: requestURL) { (possibleData, _, possibleError) in
