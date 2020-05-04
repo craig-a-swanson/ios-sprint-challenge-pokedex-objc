@@ -10,9 +10,13 @@
 
 @implementation Pokemon (NSJSONSerialization)
 
+
 - (instancetype)initTableViewWithArray:(NSArray *)array {
     
-    NSDictionary *dictionary = [array objectAtIndex:0];
+    NSMutableArray *pokemonArray = [[NSMutableArray alloc] init];
+    NSDictionary *pokemonDictionary = [array objectAtIndex:0];
+    
+    for (NSDictionary *dictionary in pokemonDictionary) {
     
     NSString *name = [dictionary objectForKey:@"name"];
     if (![name isKindOfClass:[NSString class]]) return nil;
@@ -20,7 +24,11 @@
     NSURL *detailURL = [dictionary objectForKey:@"url"];
     if (![detailURL isKindOfClass:[NSURL class]]) return nil;
     
-    return [self initTableViewWithName:name detailURL:detailURL];
+        Pokemon *newPokemon = [[Pokemon alloc] initTableViewWithName:name detailURL:detailURL];
+        [pokemonArray addObject:newPokemon];
+    }
+    self = [self initWithAllPokemon:pokemonArray];
+    return self;
 }
 
 @end

@@ -32,11 +32,14 @@ import Foundation
             }
             
             do {
-                let jsonPokemonDictionary = try JSONSerialization.jsonObject(with: data, options: [])
-                
+                let jsonPokemonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [Pokemon]
+                self.pokemons = Pokemon.init(tableViewWith: jsonPokemonArray!) as [Pokemon]
+                completion(jsonPokemonArray, nil)
                 
             } catch {
-                
+                print("Error decoding results of fetching all Pokemon: \(error)")
+                completion(nil, error)
+                return
             }
         }.resume()
     }
