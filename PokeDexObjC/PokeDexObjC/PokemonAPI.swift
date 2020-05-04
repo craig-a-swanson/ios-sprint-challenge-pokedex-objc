@@ -72,12 +72,13 @@ import UIKit
             do {
                 let jsonPokemonDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 let currentPokemon = Pokemon(dictionary: jsonPokemonDictionary!)
-//                self.fetchSprite(at: URL(string: currentPokemon.sprite)!) { (possibleImage, possibleError) in
-//                    guard let spriteImage = possibleImage else { return }
+                self.fetchSprite(at: URL(string: currentPokemon.sprite)!) { (possibleImage, possibleError) in
+                    guard let spriteImage = possibleImage else { return }
 //                    DispatchQueue.main.async {
-//                        currentPokemon.spriteImage = spriteImage
+                        currentPokemon.spriteImage = spriteImage
+                    self.selectedPokemon = currentPokemon
 //                    }
-//                }
+                }
                 completion(currentPokemon, nil)
                 
             } catch {
@@ -112,9 +113,7 @@ import UIKit
     @objc func fillInDetails(for pokemon: Pokemon) {
         fetchPokemon(for: URL(string: pokemon.detailURL)!) { (possiblePokemon, possibleError) in
             if possibleError != nil { return }
-//            DispatchQueue.main.async {
                 self.selectedPokemon = possiblePokemon
-//            }
         }
 //        fetchSprite(at: URL(string: pokemon.sprite)!) { (possibleImage, possibleError) in
 //            guard let spriteImage = possibleImage else { return }
